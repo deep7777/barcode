@@ -18,13 +18,14 @@
 	<img class="bcodes" id="barcode12">
 	<img class="bcodes" id="barcode13">
 	<img class="bcodes" id="barcode14">
+	<img class="bcodes" id="barcode15">
 </div>
 <input id="barcode" type="text" value="" maxlength="9" placeholder="Scan Barcode" style="text-transform: uppercase;">
 <button id="btn">code</button>
 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="/bower_components/JsBarcode/JsBarcode.all.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
-
+<script src="/bower_components/JsBarcode/JsBarcode.js"></script>
 <script type="text/javascript">
 var myWindow;
 $("#btn").click(function(){
@@ -33,22 +34,10 @@ $("#btn").click(function(){
 });
 
 function jsbarcodes(barcode_val){
-	JsBarcode("#barcode0",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode1",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode2",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode3",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode4",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode5",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode6",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode7",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode8",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode9",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode10",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode11",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode12",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode13",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	JsBarcode("#barcode14",barcode_val,{format:"CODE39",displayValue:true,width:2,height:25});
-	myWindow = window.open("", "MsgWindow", "width=400, height=400");
+	for(i=0;i<16;i++){
+		$("#barcode"+i).JsBarcode(barcode_val,{format:"CODE39",displayValue:true,fontSize:05});
+	}
+	myWindow = window.open("", "BARCODE", "width=500, height=500");
 	myWindow.document.write($("#barcodes").html());	
 }
 

@@ -1,6 +1,6 @@
 <html>
 <div id="barcodes"  style="display:none;">
-	<div>
+	<div id="buttons">
 	<button id="btn_print1" onclick="window.print();">Print</button>
 	</div>
 	<img class="bcodes" id="barcode0">
